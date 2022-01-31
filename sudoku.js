@@ -18,23 +18,18 @@ $btnResolver.on('click',function(e){
     fetch('sudoku.php', opts )
         //.then(res => res.text())
         .then(response => response.json())
-        .then(datos =>{
+        .then(respuestaJSON =>{
             console.log("hola");
-
-            //for (let item of datos){
-                //console.log(item);
             for (i = 0; i < 9; i++){
                 const tr = document.createElement('tr');
                 for (j = 0; j < 9; j++){
                     const td = document.createElement('td');
-                    td.textContent = datos[i][j];
+                    td.textContent = respuestaJSON[i][j];
                     tr.appendChild(td);
                 }
-                //tr.appendChild(td);
                 datosTbody.appendChild(tr);
                 }
-            //}
-            ObtenerRespuesta(datos);
+            ObtenerRespuesta(respuestaJSON);
             
         });
 });

@@ -5,7 +5,14 @@
     $objReq = json_decode($data, true); //Se convierte en un array
     $tableroSudoku = $objReq['tablero']; //almacenamos la matriz
     
-    echo json_encode($tableroSudoku); //verificar nomas xd
+
+    //En caso Arturo, de que quieras verificar que salga, verdad
+    //Necesitas esta línea de código 'json_encode($variable)'
+    echo json_encode($tableroSudoku); //<-
+
+    //$var = ['Holaa','1','2','3']; un ejemplo :p para que veas a que me refiero
+    //echo json_encode($var);
+    
 
 
     //$res = array($datos);
