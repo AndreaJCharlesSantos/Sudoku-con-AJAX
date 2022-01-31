@@ -29,14 +29,9 @@ $btnResolver.on('click',function(e){
                 }
                 datosTbody.appendChild(tr);
                 }
-            ObtenerRespuesta(respuestaJSON);
-            
         });
 });
 
-function ObtenerRespuesta(datos){
-    console.log("k recuerdos papi");
-}
 function ObtenerTablero(){
     const tablerosudoku = [];
     for (let r = 0; r < 9; r++){
