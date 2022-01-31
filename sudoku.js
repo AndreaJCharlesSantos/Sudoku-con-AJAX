@@ -1,5 +1,6 @@
 const $txtN_0_0 = $('#txtN_0_0');
 const $btnResolver = $('#btnResolver');
+const datosTbody = document.querySelector('#datosTbody')
 
 $btnResolver.on('click',function(e){
     e.preventDefault();
@@ -14,15 +15,33 @@ $btnResolver.on('click',function(e){
             'Accept': 'application/json'
            }
     }
-
     fetch('sudoku.php', opts )
-        .then(res => res.text())
-        .then(r =>{
-            console.log(r);
+        //.then(res => res.text())
+        .then(response => response.json())
+        .then(datos =>{
+            console.log("hola");
+
+            //for (let item of datos){
+                //console.log(item);
+            for (i = 0; i < 9; i++){
+                const tr = document.createElement('tr');
+                for (j = 0; j < 9; j++){
+                    const td = document.createElement('td');
+                    td.textContent = datos[i][j];
+                    tr.appendChild(td);
+                }
+                //tr.appendChild(td);
+                datosTbody.appendChild(tr);
+                }
+            //}
+            ObtenerRespuesta(datos);
+            
         });
-    
 });
 
+function ObtenerRespuesta(datos){
+    console.log("k recuerdos papi");
+}
 function ObtenerTablero(){
     const tablerosudoku = [];
     for (let r = 0; r < 9; r++){

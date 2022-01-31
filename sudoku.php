@@ -4,28 +4,29 @@
     $data = file_get_contents('php://input'); //Aquí se obtiene el contenido
     $objReq = json_decode($data, true); //Se convierte en un array
     $tableroSudoku = $objReq['tablero']; //almacenamos la matriz
+    
     echo json_encode($tableroSudoku); //verificar nomas xd
-    echo "si papi";
 
-    //$datos = array();
-    //for ($i = 0; $i < 100; $i++ ){
-        //$datos[] = array('str' => 'Dato' . $i,'i' => $i);
-    //}
+
+    //$res = array($datos);
     //Solucion
     //$resultado = array_fill(0,8, array_fill(0,8,0));
-    //for($i = 0; $i < count($tableroSudoku);$i++){
-        //for ($j = 0; $j < count($tableroSudoku[i]); $j++){
-           //$resultado[$tableroSudoku][$i][$j];
-            //if($tableroSudoku[$i][$j] == 0){
-                //$resultado[$i][$j] = rand(1,9);
+    //for($r = 0; $r < is_countable($tableroSudoku);$r++){
+        //for ($c = 0; $c < is_countable($tableroSudoku[$r]); $c++){
+           //$resultado[$r][$c] = [$tableroSudoku][$r][$c];
+            //if($tableroSudoku[$r][$c] == 0){
+                //$resultado[$r][$c] = rand(1,9);
             //}
         //}
     //}
+    //echo json_encode($resultado);
+
     //$i = array(
         //'datosPeticion' => $data,
         //'resuelto' => true,
         //'resultado' => $resultado,
     //);
-    //header('Content-Type: application-json');
-    //echo json_encode($i);
+    
+    
+
 ?>
