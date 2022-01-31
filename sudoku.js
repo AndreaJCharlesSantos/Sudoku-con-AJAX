@@ -5,6 +5,37 @@ const datosTbody = document.querySelector('#datosTbody')
 $btnResolver.on('click',function(e){
     e.preventDefault();
     const tablerosudoku = ObtenerTablero();
+    const jsonTablero = JSON.stringify(tablerosudoku); // Convert tablerosudoku to JSON
+    $.ajax({
+        method: "POST",
+        url: "sudoku.php",
+        data: {
+            tablero: jsonTablero // Array of arrays
+        }
+    }).done(function(response){
+        for (i = 0; i < 9; i++){
+            const tr = document.createElement('tr');
+            for (j = 0; j < 9; j++){
+                const td = document.createElement('td');
+                td.textContent = response[i][j];
+                tr.appendChild(td);
+            }
+            datosTbody.appendChild(tr);
+            }
+        /*
+        for($i = 0; $i < 9; $i++){
+            for($j = 0; $j < 9; $j++){
+                const elementID = `#txtN_${$i}_${$j}`;
+                $(elementID).val(response[$i][$j]);
+            }
+        }*/
+    })
+});
+
+/**
+$btnResolver.on('click',function(e){
+    e.preventDefault();
+    const tablerosudoku = ObtenerTablero();
     //console.log(tablerosudoku);
     const datos = {tablero: tablerosudoku};
     const opts = {
@@ -31,7 +62,7 @@ $btnResolver.on('click',function(e){
                 }
         });
 });
-
+*/
 function ObtenerTablero(){
     const tablerosudoku = [];
     for (let r = 0; r < 9; r++){
