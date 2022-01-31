@@ -5,14 +5,22 @@ $btnResolver.on('click',function(e){
     e.preventDefault();
     const tablerosudoku = ObtenerTablero();
     //console.log(tablerosudoku);
+    const datos = {tablero: tablerosudoku};
+    const opts = {
+        method: 'POST',
+        body: JSON.stringify(datos),
+        headers : { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           }
+    }
 
-    $.ajax({
-        method: "POST",
-        url: "sudoku.php",
-        data: {
-            tablero: tablerosudoku // Array of arrays
-        }
-    })
+    fetch('sudoku.php', opts )
+        .then(res => res.text())
+        .then(r =>{
+            console.log(r);
+        });
+    
 });
 
 function ObtenerTablero(){

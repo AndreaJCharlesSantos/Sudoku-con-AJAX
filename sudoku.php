@@ -5,8 +5,12 @@
     $objReq = json_decode($data, true); //Se convierte en un array
     $tableroSudoku = $objReq['tablero']; //almacenamos la matriz
     echo json_encode($tableroSudoku); //verificar nomas xd
+    echo "si papi";
 
-
+    //$datos = array();
+    //for ($i = 0; $i < 100; $i++ ){
+        //$datos[] = array('str' => 'Dato' . $i,'i' => $i);
+    //}
     //Solucion
     //$resultado = array_fill(0,8, array_fill(0,8,0));
     //for($i = 0; $i < count($tableroSudoku);$i++){
